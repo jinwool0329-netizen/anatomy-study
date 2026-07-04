@@ -1,0 +1,309 @@
+<title>해부학 용어 암기 · 공부 & 시험</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1a1d21; --sub:#5b626b; --line:#e6e8ec;
+    --brand:#3a6df0; --brand-ink:#fff; --ok:#12915f; --ok-bg:#e4f6ee;
+    --bad:#d23b4e; --bad-bg:#fdeaec; --chip:#eef1f6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14161a; --card:#1e2127; --ink:#f2f4f7; --sub:#a3abb6; --line:#2c313a;
+      --brand:#5b8bff; --ok:#3ddc9a; --ok-bg:#123528; --bad:#ff7085; --bad-bg:#3a1d22; --chip:#282d36; }
+  }
+  :root[data-theme="dark"]{ --bg:#14161a; --card:#1e2127; --ink:#f2f4f7; --sub:#a3abb6; --line:#2c313a;
+    --brand:#5b8bff; --ok:#3ddc9a; --ok-bg:#123528; --bad:#ff7085; --bad-bg:#3a1d22; --chip:#282d36; }
+  :root[data-theme="light"]{ --bg:#f6f7f9; --card:#ffffff; --ink:#1a1d21; --sub:#5b626b; --line:#e6e8ec;
+    --brand:#3a6df0; --ok:#12915f; --ok-bg:#e4f6ee; --bad:#d23b4e; --bad-bg:#fdeaec; --chip:#eef1f6; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    line-height:1.5;-webkit-text-size-adjust:100%}
+  .wrap{max-width:640px;margin:0 auto;padding:16px 16px 64px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 16px}
+  h1{font-size:19px;margin:0;font-weight:800;letter-spacing:-.02em}
+  .day{font-size:13px;color:var(--sub);font-weight:600}
+  .tabs{display:flex;gap:8px;margin-bottom:16px}
+  .tab{flex:1;padding:11px;border:1px solid var(--line);background:var(--card);color:var(--sub);
+    border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;text-align:center}
+  .tab.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:12px}
+  .sys{display:inline-block;font-size:12px;font-weight:700;color:var(--brand);
+    background:var(--chip);padding:3px 9px;border-radius:999px;margin-bottom:8px}
+  .term{font-size:19px;font-weight:800;letter-spacing:-.01em}
+  .en{font-size:15px;color:var(--sub);font-weight:600;margin-top:2px}
+  .la{font-size:13px;color:var(--sub);font-style:italic;margin-top:1px}
+  .know{margin-top:10px;font-size:14.5px;color:var(--ink);border-top:1px solid var(--line);padding-top:10px}
+  .btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;background:var(--brand);
+    color:var(--brand-ink);font-size:16px;font-weight:800;cursor:pointer;margin-top:8px}
+  .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .muted{color:var(--sub);font-size:13.5px}
+  .q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .bar{height:7px;background:var(--chip);border-radius:999px;overflow:hidden;margin-bottom:16px}
+  .bar>i{display:block;height:100%;background:var(--brand);width:0;transition:width .25s}
+  .prompt{font-size:13px;color:var(--sub);font-weight:700;margin-bottom:4px}
+  .question{font-size:20px;font-weight:800;margin-bottom:16px;letter-spacing:-.01em}
+  .opt{display:block;width:100%;text-align:left;padding:14px;border:1.5px solid var(--line);
+    background:var(--card);color:var(--ink);border-radius:12px;font-size:16px;font-weight:600;
+    cursor:pointer;margin-bottom:10px;transition:.12s}
+  .opt:active{transform:scale(.99)}
+  .opt.correct{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+  .opt:disabled{cursor:default;opacity:.85}
+  .opt.correct,.opt.wrong{opacity:1}
+  .feedback{padding:12px 14px;border-radius:12px;font-size:14px;margin-bottom:8px}
+  .feedback.ok{background:var(--ok-bg);color:var(--ok)}
+  .feedback.no{background:var(--bad-bg);color:var(--bad)}
+  .big{font-size:44px;font-weight:900;letter-spacing:-.03em;margin:4px 0}
+  .row{display:flex;gap:10px}
+  .row>*{flex:1}
+  .stat{text-align:center;padding:12px;background:var(--chip);border-radius:12px}
+  .stat b{display:block;font-size:22px;font-weight:900}
+  .stat span{font-size:12px;color:var(--sub);font-weight:600}
+  .wrongitem{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .wrongitem:last-child{border-bottom:none}
+  .wrongitem b{color:var(--bad)}
+  .center{text-align:center}
+  .spin{text-align:center;padding:48px 0;color:var(--sub)}
+  .themebtn{background:none;border:1px solid var(--line);color:var(--sub);border-radius:999px;
+    padding:5px 10px;font-size:12px;cursor:pointer}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>🦴 해부학 용어</h1>
+      <div class="day" id="dayLabel">불러오는 중…</div>
+    </div>
+    <button class="themebtn" id="themeBtn">🌓 테마</button>
+  </header>
+
+  <div class="tabs">
+    <button class="tab on" id="tabStudy" onclick="showTab('study')">📖 오늘 공부</button>
+    <button class="tab" id="tabTest" onclick="showTab('test')">📝 누적 시험</button>
+  </div>
+
+  <div id="study"></div>
+  <div id="test" style="display:none"></div>
+</div>
+
+<script>
+const PARAMS = new URLSearchParams(location.search);
+const LS_KEY = "anatomy_progress_v1";
+let WORDS = [], PER_DAY = 30, DAY = 1, MAXDAY = 1;
+let progress = loadProgress();
+
+/* ---------- theme ---------- */
+document.getElementById("themeBtn").onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const next = cur === "dark" ? "light" : (cur === "light" ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", next);
+  try{ localStorage.setItem("anatomy_theme", next); }catch(e){}
+};
+try{ const t = localStorage.getItem("anatomy_theme"); if(t) document.documentElement.setAttribute("data-theme", t); }catch(e){}
+
+/* ---------- storage ---------- */
+function loadProgress(){
+  try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {wordStats:{},history:[]}; }
+  catch(e){ return {wordStats:{},history:[]}; }
+}
+function saveProgress(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(progress)); }catch(e){} }
+function statOf(id){ return progress.wordStats[id] || {seen:0,correct:0,wrong:0,lastResult:null,lastDay:0}; }
+
+/* ---------- init ---------- */
+fetch("../data/words.json?v=" + Date.now())
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    WORDS = data.words || [];
+    PER_DAY = (data.meta && data.meta.per_day) || 30;
+    MAXDAY = Math.max(1, Math.ceil(WORDS.length / PER_DAY));
+    const p = parseInt(PARAMS.get("day"), 10);
+    DAY = isNaN(p) ? MAXDAY : Math.min(Math.max(1, p), MAXDAY);
+    document.getElementById("dayLabel").textContent =
+      `Day ${DAY} · 누적 ${unlocked().length}개 학습 범위`;
+    renderStudy();
+    renderTestIntro();
+    if(PARAMS.get("tab") === "test") showTab("test");  // 카톡 '시험 보기' 링크는 시험 탭으로
+  })
+  .catch(err => {
+    document.getElementById("study").innerHTML =
+      `<div class="card center muted">용어 데이터를 불러오지 못했어요.<br>(${err.message})<br><br>
+       사이트가 배포되어 <code>../data/words.json</code> 이 접근 가능한지 확인하세요.</div>`;
+  });
+
+/* words available so far (cumulative up to DAY) */
+function unlocked(){ return WORDS.slice(0, DAY * PER_DAY); }
+/* today's newly-added block */
+function todayWords(){ return WORDS.slice((DAY-1)*PER_DAY, DAY*PER_DAY); }
+
+/* ---------- tabs ---------- */
+function showTab(which){
+  document.getElementById("study").style.display = which==="study" ? "" : "none";
+  document.getElementById("test").style.display  = which==="test"  ? "" : "none";
+  document.getElementById("tabStudy").classList.toggle("on", which==="study");
+  document.getElementById("tabTest").classList.toggle("on", which==="test");
+  window.scrollTo(0,0);
+}
+
+/* ---------- study view ---------- */
+function renderStudy(){
+  const ws = todayWords();
+  let html = `<div class="card"><b>Day ${DAY} · 오늘의 용어 ${ws.length}개</b>
+    <div class="muted" style="margin-top:4px">아래 용어와 관련 지식을 먼저 외운 뒤, 위의 <b>누적 시험</b> 탭에서 테스트하세요.</div></div>`;
+  ws.forEach((w,i) => {
+    html += `<div class="card">
+      <span class="sys">${w.system||""}${w.region? " · "+w.region : ""}</span>
+      <div class="term">${i+1}. ${w.ko||""}</div>
+      ${w.en? `<div class="en">${w.en}</div>`:""}
+      ${w.la? `<div class="la">${w.la}</div>`:""}
+      ${w.knowledge? `<div class="know">${w.knowledge}</div>`:""}
+    </div>`;
+  });
+  document.getElementById("study").innerHTML = html;
+}
+
+/* ---------- test construction (cumulative + spaced repetition) ---------- */
+function buildQuiz(reviewCount){
+  const today = todayWords();
+  const past = WORDS.slice(0, Math.max(0,(DAY-1)*PER_DAY));
+  // prioritize past words that were previously wrong / less seen / not recently tested
+  const scored = past.map(w => {
+    const s = statOf(w.id);
+    const wrongBias = (s.wrong - s.correct);            // higher = weaker
+    const freshness = (DAY - (s.lastDay||0));            // longer since tested = higher
+    const noise = ((w.id*2654435761) % 1000) / 1000;    // deterministic jitter
+    return {w, score: wrongBias*3 + freshness*0.5 + (s.seen===0?2:0) + noise};
+  }).sort((a,b)=> b.score - a.score);
+  const review = scored.slice(0, Math.min(reviewCount, scored.length)).map(x=>x.w);
+  const pool = shuffle(today.concat(review));
+  return pool.map(makeQuestion);
+}
+
+function makeQuestion(w){
+  const unlockedWords = unlocked();
+  const sameSys = unlockedWords.filter(x => x.id!==w.id && x.system===w.system);
+  const others  = unlockedWords.filter(x => x.id!==w.id);
+  // question types (term-focused)
+  const types = [];
+  if(w.en) types.push("ko2en","en2ko");
+  if(w.knowledge) types.push("know2ko");
+  types.push("ko2en"); // weight terms
+  const type = types[Math.floor(rand()*types.length)];
+  let prompt, question, answer, keyField;
+  if(type==="ko2en"){ prompt="다음 용어의 영어 명칭은?"; question=w.ko; answer=w.en; keyField="en"; }
+  else if(type==="en2ko"){ prompt="다음 영어 용어의 한글 명칭은?"; question=w.en; answer=w.ko; keyField="ko"; }
+  else { prompt="설명에 해당하는 용어는?"; question=w.knowledge; answer=w.ko; keyField="ko"; }
+  // distractors
+  const distractPool = (sameSys.length>=3? sameSys : others);
+  const distractors = shuffle(distractPool).slice(0,3).map(x=>x[keyField]).filter(Boolean);
+  while(distractors.length<3){ // fallback
+    const cand = others[Math.floor(rand()*others.length)][keyField];
+    if(cand && cand!==answer && !distractors.includes(cand)) distractors.push(cand);
+    else if(others.length<4) break;
+  }
+  const options = shuffle([answer, ...distractors]);
+  return {word:w, prompt, question, answer, options};
+}
+
+/* ---------- test flow ---------- */
+let quiz=[], qi=0, correctCount=0, wrongList=[];
+function renderTestIntro(){
+  const total = unlocked().length;
+  const today = todayWords().length;
+  const reviewAvail = total - today;
+  const h = progress.history[progress.history.length-1];
+  document.getElementById("test").innerHTML = `
+    <div class="card">
+      <b>누적(적립식) 시험</b>
+      <div class="muted" style="margin-top:6px">
+        오늘 새 용어 <b>${today}개</b> + 이전에 외운 용어 복습 <b id="rvCount">${Math.min(20,reviewAvail)}개</b>를
+        섞어서 출제합니다. 틀렸던 단어일수록 더 자주 나와요.</div>
+      <div class="row" style="margin-top:14px">
+        <div class="stat"><b>${total}</b><span>학습 누적</span></div>
+        <div class="stat"><b>${today}</b><span>오늘 신규</span></div>
+        <div class="stat"><b>${reviewAvail}</b><span>복습 대상</span></div>
+      </div>
+      ${h? `<div class="muted center" style="margin-top:12px">지난 시험: ${h.correct}/${h.total} (${h.pct}%)</div>`:""}
+      <label class="muted" style="display:block;margin-top:14px">복습 문제 수:
+        <input id="reviewNum" type="range" min="0" max="${Math.max(0,reviewAvail)}"
+          value="${Math.min(20,reviewAvail)}" style="width:100%"
+          oninput="document.getElementById('rvCount').textContent=this.value+'개'"></label>
+      <button class="btn" onclick="startTest()">시험 시작 ▶</button>
+    </div>`;
+}
+function startTest(){
+  const rn = parseInt((document.getElementById("reviewNum")||{}).value ?? 20,10);
+  quiz = buildQuiz(isNaN(rn)?20:rn);
+  qi=0; correctCount=0; wrongList=[];
+  renderQuestion();
+}
+function renderQuestion(){
+  if(qi>=quiz.length) return finishTest();
+  const q = quiz[qi];
+  const pct = Math.round(qi/quiz.length*100);
+  let opts = q.options.map(o =>
+    `<button class="opt" onclick="answer(this,${JSON.stringify(o===q.answer)})" data-v="${escapeAttr(o)}">${o}</button>`
+  ).join("");
+  document.getElementById("test").innerHTML = `
+    <div class="q-meta"><span class="muted">문제 ${qi+1} / ${quiz.length}</span>
+      <span class="muted">✅ ${correctCount}</span></div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <div class="card">
+      <div class="prompt">${q.prompt}</div>
+      <div class="question">${q.question}</div>
+      <div id="opts">${opts}</div>
+      <div id="fb"></div>
+    </div>`;
+}
+function answer(btn, isCorrect){
+  const q = quiz[qi];
+  document.querySelectorAll("#opts .opt").forEach(b => {
+    b.disabled = true;
+    if(b.getAttribute("data-v") === String(q.answer)) b.classList.add("correct");
+  });
+  if(!isCorrect) btn.classList.add("wrong");
+  // record stat
+  const s = statOf(q.word.id);
+  s.seen++; s.lastDay = DAY; s.lastResult = isCorrect;
+  if(isCorrect){ s.correct++; correctCount++; } else { s.wrong++; wrongList.push(q); }
+  progress.wordStats[q.word.id] = s; saveProgress();
+  const fb = document.getElementById("fb");
+  fb.innerHTML = isCorrect
+    ? `<div class="feedback ok">정답! 🎉</div>`
+    : `<div class="feedback no">정답: <b>${q.answer}</b><br><span class="muted">${q.word.ko} · ${q.word.en||""}</span></div>`;
+  fb.insertAdjacentHTML("beforeend",
+    `<button class="btn" onclick="nextQ()">${qi+1>=quiz.length?"결과 보기":"다음 ▶"}</button>`);
+}
+function nextQ(){ qi++; renderQuestion(); }
+function finishTest(){
+  const total = quiz.length;
+  const pct = total? Math.round(correctCount/total*100) : 0;
+  progress.history.push({day:DAY, date:new Date().toISOString().slice(0,10), total, correct:correctCount, pct});
+  saveProgress();
+  let wrongHtml = wrongList.length
+    ? wrongList.map(q => `<div class="wrongitem"><b>${q.word.ko}</b> · ${q.word.en||""}
+        <div class="muted">${q.word.knowledge||""}</div></div>`).join("")
+    : `<div class="center muted" style="padding:12px">전부 맞혔어요! 완벽 💯</div>`;
+  document.getElementById("test").innerHTML = `
+    <div class="card center">
+      <div class="muted">Day ${DAY} 시험 결과</div>
+      <div class="big" style="color:${pct>=80?'var(--ok)':pct>=60?'var(--brand)':'var(--bad)'}">${pct}%</div>
+      <div class="muted">${correctCount} / ${total} 정답</div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn ghost" onclick="renderTestIntro();showTab('test')">돌아가기</button>
+        ${wrongList.length? `<button class="btn" onclick="retryWrong()">틀린 것만 다시</button>`:""}
+      </div>
+    </div>
+    ${wrongList.length? `<div class="card"><b>틀린 용어 ${wrongList.length}개</b>${wrongHtml}</div>`:`<div class="card">${wrongHtml}</div>`}`;
+  window.scrollTo(0,0);
+}
+function retryWrong(){
+  quiz = shuffle(wrongList.map(q => makeQuestion(q.word)));
+  qi=0; correctCount=0; wrongList=[];
+  renderQuestion();
+}
+
+/* ---------- utils ---------- */
+let _seed = 123456789;
+function rand(){ _seed = (_seed*1103515245 + 12345) & 0x7fffffff; return _seed/0x7fffffff; }
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(rand()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function escapeAttr(s){ return String(s).replace(/"/g,"&quot;"); }
+</script>

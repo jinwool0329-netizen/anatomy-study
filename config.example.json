@@ -1,0 +1,8 @@
+{
+  "rest_api_key": "여기에_카카오_REST_API_키",
+  "redirect_uri": "https://localhost:8080",
+  "refresh_token": "kakao_auth.py 실행 후 자동 저장됨",
+  "quiz_base_url": "https://YOURNAME.github.io/anatomy-study/quiz/",
+  "per_day": 30,
+  "include_knowledge_line": true
+}
