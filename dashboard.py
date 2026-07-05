@@ -107,8 +107,8 @@ def send_test():
     cfg = load(CONFIG)
     token = sd.refresh_access_token(cfg)
     link = cfg["quiz_base_url"].rstrip("/") + "/?day=1&pd=%d&tab=test" % cfg.get("per_day", 30)
-    sd.send_text(token, "🔔 대시보드 테스트 메시지예요! 잘 도착하면 설정 정상입니다.",
-                 link_url=link, button_title="📝 시험 페이지 열기")
+    sd.send_text(token, "🔔 대시보드 테스트 메시지예요! 잘 도착하면 설정 정상입니다.\n"
+                        "시험 페이지 👇\n" + link)
     return "테스트 메시지 발송 완료 (카톡 확인)"
 
 

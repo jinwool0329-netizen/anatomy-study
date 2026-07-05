@@ -106,9 +106,10 @@ def build_messages(day, words, cfg):
     link = cfg["quiz_base_url"].rstrip("/") + "/" if cfg["quiz_base_url"].endswith("quiz") \
         else cfg["quiz_base_url"]
     link = link + ("&" if "?" in link else "?") + "day=" + str(day) + "&pd=" + str(per_day) + "&tab=test"
+    # 링크는 본문 텍스트에 직접 넣는다(카톡이 자동으로 탭 가능한 링크로 만들며, 도메인 등록 불필요).
     link_msg = (f"📝 오늘 시험 보기\n"
-                f"위 용어들을 다 외웠으면, Day {day}까지 누적된 단어로 시험을 봅니다. "
-                f"아래 버튼을 눌러 시작하세요!")
+                f"Day {day}까지 누적된 단어로 시험! 아래 링크를 누르세요 👇\n"
+                f"{link}")
     return text_msgs, (link_msg, link)
 
 
