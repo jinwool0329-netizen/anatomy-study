@@ -113,7 +113,8 @@ fetch("../data/words.json?v=" + Date.now())
   .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
   .then(data => {
     WORDS = data.words || [];
-    PER_DAY = (data.meta && data.meta.per_day) || 30;
+    const pdParam = parseInt(PARAMS.get("pd"), 10);   // 링크의 pd= 값이 하루 단어수를 결정(대시보드에서 조절)
+    PER_DAY = (!isNaN(pdParam) && pdParam > 0) ? pdParam : ((data.meta && data.meta.per_day) || 30);
     MAXDAY = Math.max(1, Math.ceil(WORDS.length / PER_DAY));
     const p = parseInt(PARAMS.get("day"), 10);
     DAY = isNaN(p) ? MAXDAY : Math.min(Math.max(1, p), MAXDAY);

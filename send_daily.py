@@ -36,11 +36,14 @@ def save_json(path, obj):
 
 
 def refresh_access_token(cfg):
-    data = urllib.parse.urlencode({
+    params = {
         "grant_type": "refresh_token",
         "client_id": cfg["rest_api_key"],
         "refresh_token": cfg["refresh_token"],
-    }).encode()
+    }
+    if cfg.get("client_secret"):  # 앱에 클라이언트 시크릿이 켜져 있으면 필수
+        params["client_secret"] = cfg["client_secret"]
+    data = urllib.parse.urlencode(params).encode()
     req = urllib.request.Request("https://kauth.kakao.com/oauth/token", data=data, method="POST")
     with urllib.request.urlopen(req) as r:
         tok = json.loads(r.read().decode())
@@ -102,7 +105,7 @@ def build_messages(day, words, cfg):
     text_msgs = chunk_lines(header, lines)
     link = cfg["quiz_base_url"].rstrip("/") + "/" if cfg["quiz_base_url"].endswith("quiz") \
         else cfg["quiz_base_url"]
-    link = link + ("&" if "?" in link else "?") + "day=" + str(day) + "&tab=test"
+    link = link + ("&" if "?" in link else "?") + "day=" + str(day) + "&pd=" + str(per_day) + "&tab=test"
     link_msg = (f"📝 오늘 시험 보기\n"
                 f"위 용어들을 다 외웠으면, Day {day}까지 누적된 단어로 시험을 봅니다. "
                 f"아래 버튼을 눌러 시작하세요!")
